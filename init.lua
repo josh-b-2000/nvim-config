@@ -116,6 +116,17 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Go to [n]ext buffer' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Go to [p]revious buffer' })
 
+-- Make sure typescript indentation is aligned
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+  callback = function()
+    vim.bo.expandtab = true -- spaces instead of tabs
+    vim.bo.shiftwidth = 2 -- indentation level
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2
+  end,
+})
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
