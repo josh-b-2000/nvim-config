@@ -118,7 +118,7 @@ vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { desc = 'Go to [p]revious b
 
 -- Make sure typescript indentation is aligned
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+  pattern = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'json' },
   callback = function()
     vim.bo.expandtab = true -- spaces instead of tabs
     vim.bo.shiftwidth = 2 -- indentation level
