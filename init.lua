@@ -614,7 +614,17 @@ do
   ---@type table<string, vim.lsp.Config>
   local servers = {
     -- Python
-    basedpyright = {},
+    basedpyright = {
+      settings = {
+        basedpyright = {
+          analysis = {
+            diagnosticSeverityOverrides = {
+              reportExplicitAny = 'none',
+            },
+          },
+        },
+      },
+    },
     ruff = {},
 
     -- Some languages (like typescript) have entire language plugins that can be useful:
